@@ -1,0 +1,27 @@
+<div ng-if="vm.parqueos">
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>Codigo_Ficha</th>
+				<th>Estado</th>
+				<th>Fecha</th>
+				<th>Horas</th>
+				<th>Cliente</th>
+				<th>Precio</th>
+				<th>Retirar</th>
+								
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="parqueo in vm.parqueos">
+				<td>{{parqueo.codigoFicha}}</td>
+				<td>{{parqueo.estado}}</td>
+				<td>{{parqueo.fecha | date: 'd MMMM yyyy'}}</td>
+				<td>{{parqueo.horas}}</td>
+				<td>{{parqueo.idCliente.nombre}}</td>
+				<td>{{parqueo.precio}}</td>
+				<td> <button ng-click="vm.sacar(parqueo)" ng-if="parqueo.estado">sacar</button> </td>
+			</tr>
+		</tbody>
+	</table>
+</div>
